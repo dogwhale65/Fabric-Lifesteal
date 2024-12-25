@@ -1,0 +1,48 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_enchanted_golden_apple": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:enchanted_golden_apple"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_heart_fragment": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "lifestealfabric:heart_fragment"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "minecraft:heart_item"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_enchanted_golden_apple",
+      "has_heart_fragment",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "minecraft:heart_item"
+    ]
+  },
+  "sends_telemetry_event": false
+}

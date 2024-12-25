@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "E": {
+      "item": "minecraft:enchanted_golden_apple"
+    },
+    "H": {
+      "item": "lifestealfabric:heart_fragment"
+    },
+    "N": {
+      "item": "minecraft:nether_star"
+    }
+  },
+  "pattern": [
+    "NHN",
+    "HEH",
+    "NHN"
+  ],
+  "result": {
+    "item": "lifestealfabric:heart_item"
+  },
+  "show_notification": true
+}

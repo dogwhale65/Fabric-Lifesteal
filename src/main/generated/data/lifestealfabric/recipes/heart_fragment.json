@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "D": {
+      "item": "minecraft:diamond_block"
+    },
+    "T": {
+      "item": "minecraft:totem_of_undying"
+    }
+  },
+  "pattern": [
+    "DDD",
+    "DTD",
+    "DDD"
+  ],
+  "result": {
+    "item": "lifestealfabric:heart_fragment"
+  },
+  "show_notification": true
+}
