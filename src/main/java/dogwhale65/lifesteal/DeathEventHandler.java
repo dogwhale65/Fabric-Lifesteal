@@ -25,7 +25,7 @@ public class DeathEventHandler {
                 handlePlayerDeath(player);
 
                 if (player.getAttacker() instanceof ServerPlayerEntity attacker) {
-                    if (attacker.getAttributeInstance(EntityAttributes.GENERIC_MAX_HEALTH).getValue() >= 20){
+                    if (attacker.getAttributeInstance(EntityAttributes.GENERIC_MAX_HEALTH).getValue() >= 40){
                         ItemStack item = new ItemStack(ModItems.HEART, 1);
                         attacker.giveItemStack(item);
                     } else {
@@ -81,6 +81,8 @@ public class DeathEventHandler {
             server.getPlayerManager().getUserBanList().add(banEntry);
 
             player.networkHandler.disconnect(Text.literal("§cYou have run out of hearts!"));
+
+            player.getAttributeInstance(EntityAttributes.GENERIC_MAX_HEALTH).setBaseValue(6.0);
         }
     }
 }

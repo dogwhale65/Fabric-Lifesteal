@@ -11,7 +11,7 @@ import net.minecraft.util.Identifier;
 public class ModItems {
 
     public static final Item HEART = registerItem("heart_item", new HeartItem(new Item.Settings()));
-    public static final Item HEART_FRAG = registerItem("heart_fragment", new Item(new Item.Settings()));
+    public static final Item HEART_FRAG = registerItem("heart_fragment", new HeartFragmentItem(new Item.Settings()));
     public static final Item LIFE_BEACON = registerItem("life_beacon", new LifeBeaconItem(new Item.Settings()));
 
 
