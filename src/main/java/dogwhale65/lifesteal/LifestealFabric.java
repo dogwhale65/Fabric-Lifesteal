@@ -1,6 +1,7 @@
 package dogwhale65.lifesteal;
 
 import dogwhale65.lifesteal.command.ModCommandBrigadier;
+import dogwhale65.lifesteal.death.DeathEventHandler;
 import dogwhale65.lifesteal.item.ModItems;
 import net.fabricmc.api.ModInitializer;
 

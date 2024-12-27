@@ -26,9 +26,49 @@ public class ModCommandBrigadier {
                 .build();
 
 
+        LiteralCommandNode<ServerCommandSource> lifesteal = CommandManager
+                .literal("lifesteal")
+                .requires(source -> source.hasPermissionLevel(2))
+                .build();
+
+        LiteralCommandNode<ServerCommandSource> finalDeath = CommandManager
+                .literal("deathtype")
+                .requires(source -> source.hasPermissionLevel(2))
+                .build();
+        LiteralCommandNode<ServerCommandSource> banDeathType = CommandManager
+                .literal("ban")
+                .requires(source -> source.hasPermissionLevel(2))
+                .executes(ModCommandFunctions::banDeathType)
+                .build();
+
+        LiteralCommandNode<ServerCommandSource> spectatorDeathType = CommandManager
+                .literal("spectator")
+                .requires(source -> source.hasPermissionLevel(2))
+                .executes(ModCommandFunctions::spectatorDeathType)
+                .build();
+
+
         dispatcher.getRoot().addChild(withdraw);
+
         dispatcher.getRoot().addChild(revive);
         withdraw.addChild(amount);
+
+        /*dispatcher.getRoot().addChild(lifesteal);
+        lifesteal.addChild(finalDeath);
+        finalDeath.addChild(banDeathType);
+        finalDeath.addChild(spectatorDeathType);*/
+
+
+
+
+
+
+
+
+
+
+
+
     }
 
 

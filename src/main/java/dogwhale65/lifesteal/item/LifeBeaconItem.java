@@ -1,6 +1,6 @@
 package dogwhale65.lifesteal.item;
 
-import dogwhale65.lifesteal.ReviveScreenHandler;
+import dogwhale65.lifesteal.screen.ReviveScreenHandler;
 import net.minecraft.client.item.TooltipContext;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;

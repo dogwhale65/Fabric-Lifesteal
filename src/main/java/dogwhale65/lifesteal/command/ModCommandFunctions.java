@@ -2,25 +2,18 @@ package dogwhale65.lifesteal.command;
 
 import com.mojang.brigadier.context.CommandContext;
 import com.mojang.brigadier.exceptions.CommandSyntaxException;
-import dogwhale65.lifesteal.ReviveScreenHandler;
+import dogwhale65.lifesteal.screen.ReviveScreenHandler;
 import dogwhale65.lifesteal.item.ModItems;
-import net.minecraft.entity.attribute.EntityAttribute;
-import net.minecraft.entity.attribute.EntityAttributeInstance;
 import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.item.ItemStack;
-import net.minecraft.network.PacketByteBuf;
-import net.minecraft.network.packet.s2c.play.EntityAttributesS2CPacket;
-import net.minecraft.registry.Registries;
-import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.command.ServerCommandSource;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.text.Text;
 
-import javax.xml.stream.events.Attribute;
-import java.util.Collection;
-import java.util.Collections;
-
 public class ModCommandFunctions {
+
+    public static boolean banType = true;
+
 
     public static int withdraw(CommandContext<ServerCommandSource> context) throws CommandSyntaxException {
         ServerCommandSource source = context.getSource();
@@ -76,5 +69,31 @@ public class ModCommandFunctions {
 
         return 1;
     }
+
+    public static int spectatorDeathType(CommandContext<ServerCommandSource> context) throws CommandSyntaxException {
+
+        if (banType == true){
+            banType = false;
+            context.getSource().sendMessage(Text.literal("Deathtype set to spectator!"));
+        } else {
+            context.getSource().sendMessage(Text.literal("Deathtype is already set to spectator!"));
+        }
+
+        return 1;
+    }
+    public static int banDeathType(CommandContext<ServerCommandSource> context) throws CommandSyntaxException {
+        if (banType == false){
+            banType = true;
+            context.getSource().sendMessage(Text.literal("Deathtype set to ban!"));
+        } else {
+            context.getSource().sendMessage(Text.literal("Deathtype is already set to ban!"));
+        }
+
+
+        return 1;
+    }
+
+
+
 
 }

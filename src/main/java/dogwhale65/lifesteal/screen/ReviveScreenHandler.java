@@ -1,6 +1,7 @@
-package dogwhale65.lifesteal;
+package dogwhale65.lifesteal.screen;
 
 
+import com.mojang.authlib.GameProfile;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.inventory.SimpleInventory;
 
@@ -12,6 +13,7 @@ import net.minecraft.screen.ScreenHandlerType;
 import net.minecraft.screen.SimpleNamedScreenHandlerFactory;
 import net.minecraft.screen.slot.SlotActionType;
 
+import net.minecraft.server.BannedPlayerEntry;
 import net.minecraft.server.BannedPlayerList;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.network.ServerPlayerEntity;
@@ -39,8 +41,22 @@ public class ReviveScreenHandler {
             int index = 0;
             for (String playerName : bannedNames) {
                 if (index >= slots) break;
-
+                boolean reviveViable;
                 if (playerName == null) continue;
+                final GameProfile[] profileHolder = {null};
+                server.getUserCache().findByName(playerName).ifPresent(profile -> profileHolder[0] = profile);
+
+
+                BannedPlayerEntry banEntry = bannedPlayerList.get(profileHolder[0]);
+                String reason = banEntry.getReason();
+
+
+                if (reason == "§cYou have run out of hearts!") {
+                    reviveViable = true;
+                } else {
+                    reviveViable = false;
+                }
+                if (!reviveViable) continue;
 
                 ItemStack playerHead = new ItemStack(Items.PLAYER_HEAD);
                 NbtCompound nbt = playerHead.getOrCreateNbt();
@@ -89,7 +105,7 @@ public class ReviveScreenHandler {
 
                     }
                 },
-                Text.literal("Banned Players"))
+                Text.literal("Revive a Player!"))
         );
     }
 }
